@@ -14,7 +14,7 @@ library(ggplot2)
 min_wage <- read_csv("minimum-wage-data.csv")
   '''
   st.code(code1, language='R')
-process1 = subprocess.Popen(["Rscript", "data1.R"], stdout=subprocess.PIPE, text=True)
+process1 = subprocess.Popen(["Rscript", "data1.R"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
 result1 = process1.communicate()
 st.write(result1)
 st.write("The dataset analyzed is the collection of data from 1968 until 2020 about wages at different government levels in the United States of America. The important values for this analysis will focus on Year, State, Effective.Minimum.Wage.2020.Dollars, and Region (added in next step). We will use these variables to investigate the trend of minimum wage between different areas of the U.S. throughout the years.")
