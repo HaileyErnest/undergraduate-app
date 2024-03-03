@@ -11,7 +11,7 @@ with st.expander('See code'):
   code1 = '''
 library(tidyverse)
 library(ggplot2)
-min_wage <- read_csv("minimum-wage-data.csv", show_col_types = FALSE)
+min_wage <- read_csv("minimum-wage-data.csv")
   '''
   st.code(code1, language='R')
 process1 = subprocess.Popen(["Rscript", "data1.R"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
