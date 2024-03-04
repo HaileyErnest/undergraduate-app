@@ -1,5 +1,4 @@
 import subprocess
-# from tkinter import Image
 import streamlit as st
 from PIL import Image
 
@@ -9,6 +8,7 @@ st.title("How does minimum wage differ by region?")
 st.subheader('Data')
 with st.expander('See code'):
   code1 = '''
+# Load packages and import data  
 library(tidyverse)
 library(ggplot2)
 min_wage <- read_csv("minimum-wage-data.csv")

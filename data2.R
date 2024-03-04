@@ -1,0 +1,5 @@
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(purrr)
+national_park <- read.csv("national_park_trails.csv")
