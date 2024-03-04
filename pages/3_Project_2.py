@@ -144,3 +144,101 @@ process7 = subprocess.Popen(["Rscript", "parks6.R"], stdout=subprocess.PIPE, std
 result7 = process1.communicate()
 image5 = Image.open('plot15.png')
 st.image(image5)
+
+st.subheader("Functional Programming with map")
+st.write("""
+Use your function to recommend me trails from nearby parks
+    I am looking for a trail that is:
+        - 1000-3000 meters of elevation (I like mountains, but not too big.)
+        - Rated at least a 4.5 on average
+        - A loop trail (I don’t like to retrace my steps)
+Iterate over the following parks to recommend me trails: Yosemite, Joshua Tree, Death Valley, Pinnacles, Lassen, Sequoia, and King’s Canyon.
+""")
+with st.expander('See code'):
+  code8 = '''
+map_dfr(.x = c("Yosemite National Park",
+               "Joshua Tree National Park",
+               "Death Valley National Park",
+               "Pinnacles National Park",
+               "Lassen National Park",
+               "Sequoia National Park",
+               "King's Canyon National Park"),
+        ~ recommend_trails(data = national_park,
+                           park_name = .x,
+                           min_elev = 1000,
+                           max_elev = 3000,
+                           min_rating = 4.5,
+                           trl_type = "loop"))
+  '''
+  st.code(code8, language='R')
+process8 = subprocess.Popen(["Rscript", "parks7.R"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+result8 = process8.communicate()
+image6 = Image.open('plot16.png')
+st.image(image6)
+
+st.title("Research Question")
+st.write("Two of the most famous parks in the world are Yosemite and Yellowstone. We are interested in studying if one of the parks has “better” trails than the other. Form the definition of what “better” is.")
+st.subheader("Visualization")
+with st.expander('See code'):
+  code9 = '''
+national_park |>
+  filter(area_name %in% c("Yosemite National Park", "Yellowstone National Park"),
+         avg_rating > 3, 
+         !str_detect(features, "'dogs-no'"))|>
+  ggplot(aes(x=popularity, y=length, color=area_name))+
+  geom_line()+
+  labs(x = "Popularity", 
+       y= "Length (meters)", 
+       title = "Popularity of Famous Trails By Trail Length", 
+       color="National Park")+
+  scale_color_manual(values = c("Yosemite National Park" = "brown", "Yellowstone National Park" = "#CD9600"))
+  '''
+  st.code(code9, language='R')
+process9 = subprocess.Popen(["Rscript", "parks7.R"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+result9 = process9.communicate()
+image7 = Image.open('plot17.png')
+st.image(image7)
+st.write("After comparing Yosemite and Yellowstone National Parks, we conclude that Yosemite National Park is better because the parks that have a high average rating while allowing dogs have a low popularity (less crowded) and variety of trail lengths compared to Yellowstone National Parks.")
+
+st.subheader("Statistical Analysis")
+st.write("Preforming a statistical analysis to address the research question using Welch Two Sample t-test.")
+with st.expander('See code'):
+  code10 = '''
+park_data <- national_park %>%
+  filter(area_name %in% c("Yosemite National Park", "Yellowstone National Park"))
+
+better_park <- national_park |>
+  filter(area_name %in% c("Yosemite National Park", "Yellowstone National Park"))|>
+  select(area_name, avg_rating, popularity)
+
+t_test_rating_result <- t.test(avg_rating ~ area_name, data = better_park)
+t_test_popularity_result <- t.test(popularity ~ area_name, data = better_park)
+
+print(t_test_rating_result)
+print(t_test_popularity_result)
+  '''
+  st.code(code10, language='R')
+process10 = subprocess.Popen(["Rscript", "parks9.R"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+result10 = process10.communicate()
+image8 = Image.open('plot18.png')
+st.image(image8)
+image9 = Image.open('plot19.png')
+st.image(image9)
+
+with st.expander('See code'):
+  code11 = '''
+park_data <- national_park %>%
+better_park|>
+  ggplot(aes(x=area_name, y=popularity)) +  
+  geom_boxplot() + 
+  ylab("Popularity") + 
+  xlab("National Park") + 
+  labs(title="Side-by-side Boxplot of Popularity of Famous National Parks")
+  '''
+  st.code(code11, language='R')
+process11 = subprocess.Popen(["Rscript", "parks10.R"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+result11 = process11.communicate()
+image10 = Image.open('plot20.png')
+st.image(image10)
+
+st.write("Based on the statistical evidence found in the t-test comparing Yellow Stone National Park and Yosemite National Park, we found that when it comes to average rating there was no statistically significant difference between the parks since the p-value is greater than 0.05, but when it comes to popularity, Yosemite had a statistically significant average of 9.235 compared to 7.001 making it the better National Park.")

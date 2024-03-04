@@ -1,0 +1,13 @@
+map_dfr(.x = c("Yosemite National Park",
+               "Joshua Tree National Park",
+               "Death Valley National Park",
+               "Pinnacles National Park",
+               "Lassen National Park",
+               "Sequoia National Park",
+               "King's Canyon National Park"),
+        ~ recommend_trails(data = national_park,
+                           park_name = .x,
+                           min_elev = 1000,
+                           max_elev = 3000,
+                           min_rating = 4.5,
+                           trl_type = "loop"))
