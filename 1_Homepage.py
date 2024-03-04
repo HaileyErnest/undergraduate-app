@@ -7,7 +7,7 @@ import numpy as np
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
 css_file = current_dir / "styles" / "main.css"
 resume_file = current_dir / "assets" / "resume2024.pdf"
-profile_pic = current_dir / "assets" / "profile_picture.png"
+profile_pic = current_dir / "assets" / "pic.png"
 
 PAGE_TITLE = "Hailey Ernest's Portfolio"
 PAGE_ICON = ":wave:"
