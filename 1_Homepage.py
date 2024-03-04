@@ -65,12 +65,9 @@ st.write(
 )
 
 st.write('\n')
-st.subheader("Hard Skills")
+st.subheader("Projects")
 st.write(
     """
-- 👩‍💻 Programming: Python (Scikit-learn, Pandas), SQL, VBA
-- 📊 Data Visulization: PowerBi, MS Excel, Plotly
-- 📚 Modeling: Logistic regression, linear regression, decition trees
-- 🗄️ Databases: Postgres, MongoDB, MySQL
+- The uploaded analysis projects are conducted in R on varied data sets
 """
 )
