@@ -9,7 +9,7 @@ css_file = current_dir / "styles" / "main.css"
 resume_file = current_dir / "assets" / "HaileyErnest_Resume2024.pdf"
 profile_pic = current_dir / "assets" / "pic1.png"
 
-PAGE_TITLE = "Hailey Ernest's Portfolio"
+PAGE_TITLE = "Hailey Ernest's Data Portfolio"
 PAGE_ICON = ":wave:"
 NAME = "Hailey Ernest"
 DESCRIPTION = """
