@@ -5,7 +5,7 @@ link= "Click on this link to view [link](https://haileyerneststatistician.shinya
 st.markdown(link,unsafe_allow_html=True)
 
 st.subheader("Description")
-st.write("This app is an extremely in depth interactive platform analyzing Obesity Rates across the United States.")
+st.write("This app is an extremely in depth interactive platform analyzing Obesity Rates across the United States. Details:")
 st.write("""
     - Using code, the statistics are chosen by the user
     - Selection of Ethnicity, Years, and Percentage intervals affect the graphics
