@@ -6,14 +6,14 @@ import numpy as np
 
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
 css_file = current_dir / "styles" / "main.css"
-resume_file = current_dir / "assets" / "HaileyErnest_Resume2025-26.pdf"
+resume_file = current_dir / "assets" / "HaileyErnest_Resume2026.pdf"
 profile_pic = current_dir / "assets" / "pic1.png"
 
 PAGE_TITLE = "Hailey Ernest's Data Portfolio"
 PAGE_ICON = ":wave:"
 NAME = "Hailey Ernest"
 DESCRIPTION = """
-Data Scientist
+Blended Masters Student in Statistics and Data Science
 """
 EMAIL = "hailey.ernest@icloud.com"
 
@@ -58,9 +58,19 @@ st.header('Background')
 st.subheader('About me')
 st.write(
     """
-- Education: Cal Poly University - B.S. Statistics, Data Science
-- Location: Woodinville, Washington
+- Education: Cal Poly University - B.S. & M.S. Statistics, Data Science
+- Location: Bellevue, Washington
 - Languages: English, Hebrew, French
+"""
+)
+
+st.subheader('Course Content')
+st.write(
+    """
+- Data Science, Machine Learning, Calculus, Linear Algebra, Probability and Statistics, 
+- Design and Analysis of Experiments, Economics, Intro to Computer Science, Data Structures, 
+- Object-Oriented Programming, Probability Theory, Design and Analysis of Algorithms, Intro
+- to Databases, Survival Analysis, and Generalized Linear Models
 """
 )
 
