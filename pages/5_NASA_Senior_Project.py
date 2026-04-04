@@ -4,30 +4,22 @@ import base64
 
 st.title("Data Science Senior Project with NASA")
 
-pdf_path = "assets/NasaMid-ProjectReport.pdf"
-
-with open(pdf_path, "rb") as pdf_file:
-    pdf_bytes = pdf_file.read()
+pdf_path = "assets/NasaTeamDocument.pdf"
+with open(pdf_path, "rb") as f:
+    pdf_data = f.read()
 
 st.download_button(
-    label="Download the report",
-    data=pdf_bytes,
-    file_name="NasaMid-ProjectReport.pdf",
+    label="Download Full Report",
+    data=pdf_data,
+    file_name="NasaTeamDocument.pdf",
     mime="application/pdf"
 )
 
-st.markdown("### View Report")
-pdf_base64 = base64.b64encode(pdf_bytes).decode("utf-8")
-pdf_display = f"""
-<iframe
-    src="data:application/pdf;base64,{pdf_base64}"
-    width="100%"
-    height="800"
-    type="application/pdf">
-</iframe>
-"""
-st.markdown(pdf_display, unsafe_allow_html=True)
+image1 = Image.open("plot21.png")
+st.image(image1, caption="NASA project visualization 1", use_container_width=True)
 
+image2 = Image.open("plot22.png")
+st.image(image2, caption="NASA project visualization 2", use_container_width=True)
 
 st.subheader("Description")
 st.write("""
@@ -42,8 +34,33 @@ Key features:
 This work demonstrates how data-driven methods can improve early detection of critical system behaviors, supporting more reliable and efficient space operations.
 """)
 
-image1 = Image.open("plot21.png")
-st.image(image1, caption="NASA project visualization 1", use_container_width=True)
+pages = [
+    "assets/nasa_page1.png",
+    "assets/nasa_page2.png",
+    "assets/nasa_page3.png",
+    "assets/nasa_page4.png",
+    "assets/nasa_page5.png",
+    "assets/nasa_page6.png",
+    "assets/nasa_page7.png",
+    "assets/nasa_page8.png",
+]
 
-image2 = Image.open("plot22.png")
-st.image(image2, caption="NASA project visualization 2", use_container_width=True)
+if "page_num" not in st.session_state:
+    st.session_state.page_num = 0
+
+st.markdown("### Report Preview")
+
+col1, col2, col3 = st.columns([1, 2, 1])
+
+with col1:
+    if st.button("Previous") and st.session_state.page_num > 0:
+        st.session_state.page_num -= 1
+
+with col3:
+    if st.button("Next") and st.session_state.page_num < len(pages) - 1:
+        st.session_state.page_num += 1
+
+st.write(f"Page {st.session_state.page_num + 1} of {len(pages)}")
+
+image = Image.open(pages[st.session_state.page_num])
+st.image(image, use_container_width=True)
