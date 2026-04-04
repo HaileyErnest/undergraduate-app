@@ -1,13 +1,33 @@
 import streamlit as st
+from PIL import Image
+import base64
 
 st.title("Data Science Senior Project with NASA")
-with open("assets/NasaMid-ProjectReport.pdf", "rb") as f:
-    st.download_button(
-        label="Click here to view/download the report",
-        data=f,
-        file_name="report.pdf",
-        mime="application/pdf"
-    )
+
+pdf_path = "assets/NasaMid-ProjectReport.pdf"
+
+with open(pdf_path, "rb") as pdf_file:
+    pdf_bytes = pdf_file.read()
+
+st.download_button(
+    label="Download the report",
+    data=pdf_bytes,
+    file_name="NasaMid-ProjectReport.pdf",
+    mime="application/pdf"
+)
+
+st.markdown("### View Report")
+pdf_base64 = base64.b64encode(pdf_bytes).decode("utf-8")
+pdf_display = f"""
+<iframe
+    src="data:application/pdf;base64,{pdf_base64}"
+    width="100%"
+    height="800"
+    type="application/pdf">
+</iframe>
+"""
+st.markdown(pdf_display, unsafe_allow_html=True)
+
 
 st.subheader("Description")
 st.write("""
@@ -21,3 +41,9 @@ Key features:
 
 This work demonstrates how data-driven methods can improve early detection of critical system behaviors, supporting more reliable and efficient space operations.
 """)
+
+image1 = Image.open("plot21.png")
+st.image(image1, caption="NASA project visualization 1", use_container_width=True)
+
+image2 = Image.open("plot22.png")
+st.image(image2, caption="NASA project visualization 2", use_container_width=True)
