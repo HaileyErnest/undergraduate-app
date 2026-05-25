@@ -6,8 +6,8 @@ import numpy as np
 
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
 css_file = current_dir / "styles" / "main.css"
-resume_file = current_dir / "assets" / "HaileyErnest_Resume26.pdf"
-profile_pic = current_dir / "assets" / "pic1.png"
+resume_file = current_dir / "assets" / "HaileyErnest_Resume2026.pdf"
+profile_pic = current_dir / "assets" / "UpdatedpicHailey.PNG"
 
 PAGE_TITLE = "Hailey Ernest's Data Portfolio"
 PAGE_ICON = ":wave:"
@@ -68,9 +68,9 @@ st.subheader('Course Content')
 st.write(
     """
 - Data Science, Machine Learning, Calculus, Linear Algebra, Probability and Statistics, 
-- Design and Analysis of Experiments, Economics, Intro to Computer Science, Data Structures, 
-- Object-Oriented Programming, Probability Theory, Design and Analysis of Algorithms, Intro
-- to Databases, Survival Analysis, and Generalized Linear Models
+- Design and Analysis of Experiments, Economics, Intro to Computer Science, Data
+- Structures, Object-Oriented Programming, Probability Theory, Design and Analysis of
+- Algorithms, Intro to Databases, Survival Analysis, and Generalized Linear Models
 """
 )
 
@@ -78,6 +78,4 @@ st.write('\n')
 st.subheader("Projects")
 st.write(
     """
-- The uploaded analysis projects are conducted in R on varied data sets
-"""
-)
+- The uploaded analysis projects are conducted in R on varied da
