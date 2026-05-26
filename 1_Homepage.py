@@ -76,6 +76,9 @@ st.write(
 
 st.write('\n')
 st.subheader("Projects")
-st.write(
+st.markdown(
     """
-- The uploaded analysis projects are conducted in R on varied da
+- The uploaded analysis projects are conducted in R on varied data sets
+- Github: [My GitHub](https://github.com/HaileyErnest)
+"""
+)
