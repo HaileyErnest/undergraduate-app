@@ -22,7 +22,7 @@ st.set_page_config(
     page_icon="assets/icon.png",
 )
 
-st.title("Hailey Ernest\'s Portfolio")
+#st.title("Hailey Ernest\'s Portfolio")
 
 st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
 
