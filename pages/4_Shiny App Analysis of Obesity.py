@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("Project - Creat Shiny App")
+st.title("Project - Create Shiny App")
 link= "Click on this link to view [link](https://haileyerneststatistician.shinyapps.io/obesity/)"
 st.markdown(link,unsafe_allow_html=True)
 
