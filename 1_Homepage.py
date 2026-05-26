@@ -18,7 +18,6 @@ Blended Masters Student in Statistics and Data Science
 EMAIL = "hailey.ernest@icloud.com"
 
 st.set_page_config(
-    page_title="Hailey E.\'s Portfolio",
     layout="wide",
     page_icon="assets/icon.png",
 )
