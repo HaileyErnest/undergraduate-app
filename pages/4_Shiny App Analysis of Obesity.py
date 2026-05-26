@@ -1,4 +1,5 @@
 import streamlit as st
+from PIL import Image
 
 st.title("Project - Create Shiny App")
 link= "Click on this link to view [link](https://haileyerneststatistician.shinyapps.io/obesity/)"
