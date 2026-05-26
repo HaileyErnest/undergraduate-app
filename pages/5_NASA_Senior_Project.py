@@ -2,7 +2,7 @@ import streamlit as st
 from PIL import Image
 import base64
 
-st.title("Data Science Senior Project with NASA")
+st.title("Senior Capstone - Data Science for NASA")
 
 pdf_path = "assets/NasaTeamDocument.pdf"
 with open(pdf_path, "rb") as f:
