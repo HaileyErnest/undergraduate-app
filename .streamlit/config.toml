@@ -10,3 +10,5 @@ secondaryBackgroundColor = "#586e75"
 
 # Color used for almost all text.
 textColor = "#fff"
+
+base="light"
