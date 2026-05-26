@@ -13,3 +13,6 @@ st.write("""
     - A time-series graph of the top 3 and bottom 3 states changes by specified criteria
          """)
 st.write("This analysis is a very eye-opening topic about the health of people in the United States and taking further action is apparent through interacting with ethnicities and years from the data set.")
+
+image1 = Image.open("plot23.png")
+st.image(image1, caption="NASA project visualization 1", use_container_width=True)
