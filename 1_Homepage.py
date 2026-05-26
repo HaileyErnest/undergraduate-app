@@ -7,7 +7,7 @@ import numpy as np
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
 css_file = current_dir / "styles" / "main.css"
 resume_file = current_dir / "assets" / "HaileyErnest_Resume2026.pdf"
-profile_pic = current_dir / "assets" / "UpdatedpicHailey.png"
+profile_pic = current_dir / "assets" / "UpdatedpicHailey.PNG"
 
 PAGE_TITLE = "Hailey Ernest's Data Portfolio"
 PAGE_ICON = ":wave:"
@@ -24,8 +24,6 @@ st.set_page_config(
 
 #st.title("Hailey Ernest\'s Portfolio")
 
-st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
-
 
 # --- LOAD CSS, PDF & PROFIL PIC ---
 with open(css_file) as f:
@@ -38,7 +36,7 @@ profile_pic = Image.open(profile_pic)
 # --- HERO SECTION ---
 col1, col2 = st.columns([1, 1.5], gap="small")
 with col1:
-    st.image(profile_pic, width=200)
+    st.image(str(profile_pic), width=200)
 
 with col2:
     st.title(NAME)
